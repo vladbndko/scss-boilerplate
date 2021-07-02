@@ -1,0 +1,34 @@
+@import 'colors';
+@import 'helpers';
+
+// Main
+$body-background: color(base, white);
+$base-font-weight: 400;
+$base: 400;
+$root-font-size: (
+  xs: 16px,
+  // sm:
+  md: 18px,
+  // lg:
+  xl: 20px,
+);
+
+// Fonts
+$font-primary: 'Nunito', sans-serif;
+$font-secondary: 'Nunito', sans-serif;
+
+// Fonts weights
+$weights: 400, 500, 700;
+
+// Selection
+$selection-background: color(primary, 100);
+$selection-color: color(primary, 500);
+
+// Scrollbar
+$scrollbar-size: 0.5rem;
+$scrollbar-foreground: color(primary, 100);
+$scrollbar-background: color(primary, 500);
+
+// Hamburger
+$hamburger-color: color(primary, 500);
+$hamburger-height: 3px;

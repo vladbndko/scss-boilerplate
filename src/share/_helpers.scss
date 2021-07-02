@@ -1,0 +1,29 @@
+@import 'colors';
+@import 'brakepoints';
+
+@function breakpoint($breakpoint) {
+  @return map-get($breakpoints, $breakpoint);
+}
+
+@function map($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+@function color($keys...) {
+  $map: $colors;
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+@function weight($keys...) {
+  $map: $weights;
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}

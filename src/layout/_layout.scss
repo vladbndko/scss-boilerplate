@@ -1,0 +1,64 @@
+@import '../share/index';
+
+::selection {
+  background-color: $selection-background;
+  color: $selection-color;
+}
+
+::-webkit-scrollbar {
+  width: $scrollbar-size;
+  height: $scrollbar-size;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $scrollbar-foreground;
+}
+
+::-webkit-scrollbar-track {
+  background: $scrollbar-background;
+}
+
+html {
+  scroll-behavior: smooth;
+  @each $breakpoint, $size in $root-font-size {
+    @if ($breakpoint == xs) {
+      font-size: $size;
+    } @else {
+      @include media($breakpoint) {
+        font-size: $size;
+      }
+    }
+  }
+}
+
+body {
+  font-family: $font-primary;
+  color: color(primary, 500);
+  line-height: 1.6;
+  font-size: 1rem;
+  overflow-x: hidden;
+  position: relative;
+  min-width: 320px;
+  font-weight: $body-font-weight;
+  background-color: $body-background;
+  scrollbar-face-color: $scrollbar-foreground;
+  scrollbar-track-color: $scrollbar-background;
+  &.is-loading {
+    overflow: hidden;
+    height: 100vh;
+  }
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  &-main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  &-footer {
+    flex-shrink: 0;
+  }
+}

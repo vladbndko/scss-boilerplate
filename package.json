@@ -1,0 +1,34 @@
+{
+  "name": "scss-boilerplate",
+  "version": "1.0.0",
+  "description": "SCSS Boilerplate",
+  "main": "src/style.scss",
+  "scripts": {
+    "sass": "node-sass src -wo dist",
+    "browser": "browser-sync start --server 'dist' --files 'dist'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vladbndko/scss-boilerplate.git"
+  },
+  "keywords": [
+    "scss",
+    "boilerplate"
+  ],
+  "author": "Vladyslav Bondarenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vladbndko/scss-boilerplate/issues"
+  },
+  "homepage": "https://github.com/vladbndko/scss-boilerplate#readme",
+  "devDependencies": {
+    "node-sass": "^6.0.1",
+    "prettier": "^2.3.2"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "bootstrap": "^4.6.0",
+    "browser-sync": "^2.27.4",
+    "hamburgers": "^1.1.3"
+  }
+}

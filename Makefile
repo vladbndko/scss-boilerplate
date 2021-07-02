@@ -1,2 +1,5 @@
-watch:
-	npx node-sass -w src/style.scss dist/style.css
+sass:
+	npm run sass
+
+browser:
+	npm run browser

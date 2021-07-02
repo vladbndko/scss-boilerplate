@@ -1,0 +1,41 @@
+@import 'helpers';
+
+@mixin media($media) {
+  @if $media==sm {
+    @media only screen and (min-width: breakpoint('sm')) {
+      @content;
+    }
+  } @else if $media == md {
+    @media only screen and (min-width: breakpoint('md')) {
+      @content;
+    }
+  } @else if $media == lg {
+    @media only screen and (min-width: breakpoint('lg')) {
+      @content;
+    }
+  } @else if $media == xl {
+    @media only screen and (min-width: breakpoint('xl')) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-width: $media) {
+      @content;
+    }
+  }
+}
+
+@mixin browser($type) {
+  @if $type == ie {
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+      @content;
+    }
+  } @else if $type == edge {
+    @supports (-ms-ime-align: auto) {
+      @content;
+    }
+  } @else if $type == safari {
+    @media not all and (min-resolution: 0.001dpcm) {
+      @content;
+    }
+  }
+}

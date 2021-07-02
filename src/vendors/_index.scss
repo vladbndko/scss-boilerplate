@@ -1,0 +1,14 @@
+@import '../share/index';
+/*
+@import '../../node_modules/bootstrap/scss/bootstrap-reboot';
+@import '../../node_modules/bootstrap/scss/bootstrap-grid';
+
+$fa-font-path: 'webfonts/fontawesome';
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/solid';
+@import '../../node_modules/@fortawesome/fontawesome-free/scss/brands';
+*/
+// Hamburgers
+$hamburger-layer-color: $hamburger-color;
+$hamburger-layer-height: $hamburger-height;
+@import '../../node_modules/hamburgers/_sass/hamburgers/hamburgers';
