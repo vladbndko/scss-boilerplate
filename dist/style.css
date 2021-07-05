@@ -3087,8 +3087,8 @@ $fa-font-path: 'webfonts/fontawesome';
 .font-weight-400 {
   font-weight: 400 !important; }
 
-.font-weight-500 {
-  font-weight: 500 !important; }
+.font-weight-600 {
+  font-weight: 600 !important; }
 
 .font-weight-700 {
   font-weight: 700 !important; }
@@ -3184,8 +3184,8 @@ $fa-font-path: 'webfonts/fontawesome';
     color: #853c00 !important; }
   .font-weight-sm-400 {
     font-weight: 400 !important; }
-  .font-weight-sm-500 {
-    font-weight: 500 !important; }
+  .font-weight-sm-600 {
+    font-weight: 600 !important; }
   .font-weight-sm-700 {
     font-weight: 700 !important; }
   .font-size-sm-1 {
@@ -3268,8 +3268,8 @@ $fa-font-path: 'webfonts/fontawesome';
     color: #853c00 !important; }
   .font-weight-md-400 {
     font-weight: 400 !important; }
-  .font-weight-md-500 {
-    font-weight: 500 !important; }
+  .font-weight-md-600 {
+    font-weight: 600 !important; }
   .font-weight-md-700 {
     font-weight: 700 !important; }
   .font-size-md-1 {
@@ -3352,8 +3352,8 @@ $fa-font-path: 'webfonts/fontawesome';
     color: #853c00 !important; }
   .font-weight-lg-400 {
     font-weight: 400 !important; }
-  .font-weight-lg-500 {
-    font-weight: 500 !important; }
+  .font-weight-lg-600 {
+    font-weight: 600 !important; }
   .font-weight-lg-700 {
     font-weight: 700 !important; }
   .font-size-lg-1 {
@@ -3436,8 +3436,8 @@ $fa-font-path: 'webfonts/fontawesome';
     color: #853c00 !important; }
   .font-weight-xl-400 {
     font-weight: 400 !important; }
-  .font-weight-xl-500 {
-    font-weight: 500 !important; }
+  .font-weight-xl-600 {
+    font-weight: 600 !important; }
   .font-weight-xl-700 {
     font-weight: 700 !important; }
   .font-size-xl-1 {
@@ -3481,6 +3481,188 @@ $fa-font-path: 'webfonts/fontawesome';
 
 .text-nowrap {
   white-space: nowrap !important; }
+
+@keyframes loading-rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg); }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg); } }
+
+.button {
+  display: inline-block;
+  position: relative;
+  border: none;
+  padding: 14px 28px;
+  font-size: 14px;
+  border-radius: 10em;
+  text-align: center;
+  cursor: pointer;
+  word-break: break-word;
+  font-weight: 600;
+  white-space: nowrap;
+  text-transform: uppercase;
+  transition: all 0.15s ease-in-out; }
+  .button:hover, .button:active, .button:focus {
+    outline: none;
+    text-decoration: none; }
+  .button[disabled] {
+    opacity: 0.75;
+    pointer-events: none;
+    user-select: none !important; }
+  .button.is-small {
+    padding: 8px 16px;
+    font-size: 12px; }
+  .button.is-large {
+    padding: 20px 40px;
+    font-size: 18px; }
+  .button.is-loading {
+    color: transparent !important;
+    pointer-events: none !important;
+    user-select: none !important; }
+    .button.is-loading::after {
+      content: '';
+      width: 1.5em;
+      height: 1.5em;
+      position: absolute;
+      border-width: 2px;
+      border-style: solid;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      animation: loading-rotate 0.35s linear infinite; }
+
+.button.is-gray-soft {
+  background-color: #f9fafb; }
+  .button.is-gray-soft, .button.is-gray-soft:focus {
+    color: #6b7280; }
+  .button.is-gray-soft:hover, .button.is-gray-soft:active {
+    color: #6b7280; }
+  .button.is-gray-soft:hover {
+    background-color: #f0f2f5; }
+  .button.is-gray-soft.is-loading::after {
+    border-color: rgba(107, 114, 128, 0.25);
+    border-top-color: #6b7280; }
+  .button.is-gray-soft:focus {
+    box-shadow: 0 0 0 0.2em rgba(249, 250, 251, 0.5); }
+
+.button.is-primary-soft {
+  background-color: #eff6ff; }
+  .button.is-primary-soft, .button.is-primary-soft:focus {
+    color: #3b82f6; }
+  .button.is-primary-soft:hover, .button.is-primary-soft:active {
+    color: #3b82f6; }
+  .button.is-primary-soft:hover {
+    background-color: #e0edff; }
+  .button.is-primary-soft.is-loading::after {
+    border-color: rgba(59, 130, 246, 0.25);
+    border-top-color: #3b82f6; }
+  .button.is-primary-soft:focus {
+    box-shadow: 0 0 0 0.2em rgba(239, 246, 255, 0.5); }
+
+.button.is-secondary-soft {
+  background-color: #f5f3ff; }
+  .button.is-secondary-soft, .button.is-secondary-soft:focus {
+    color: #8b5cf6; }
+  .button.is-secondary-soft:hover, .button.is-secondary-soft:active {
+    color: #8b5cf6; }
+  .button.is-secondary-soft:hover {
+    background-color: #e8e4ff; }
+  .button.is-secondary-soft.is-loading::after {
+    border-color: rgba(139, 92, 246, 0.25);
+    border-top-color: #8b5cf6; }
+  .button.is-secondary-soft:focus {
+    box-shadow: 0 0 0 0.2em rgba(245, 243, 255, 0.5); }
+
+.button.is-gray {
+  background-color: #6b7280; }
+  .button.is-gray, .button.is-gray:focus {
+    color: #fff; }
+  .button.is-gray:hover, .button.is-gray:active {
+    color: #fff; }
+  .button.is-gray:hover {
+    background-color: #727988; }
+  .button.is-gray.is-loading::after {
+    border-color: rgba(255, 255, 255, 0.25);
+    border-top-color: #fff; }
+  .button.is-gray:focus {
+    box-shadow: 0 0 0 0.2em rgba(107, 114, 128, 0.5); }
+
+.button.is-secondary {
+  background-color: #8b5cf6; }
+  .button.is-secondary, .button.is-secondary:focus {
+    color: #fff; }
+  .button.is-secondary:hover, .button.is-secondary:active {
+    color: #fff; }
+  .button.is-secondary:hover {
+    background-color: #956af7; }
+  .button.is-secondary.is-loading::after {
+    border-color: rgba(255, 255, 255, 0.25);
+    border-top-color: #fff; }
+  .button.is-secondary:focus {
+    box-shadow: 0 0 0 0.2em rgba(139, 92, 246, 0.5); }
+
+.button.is-primary {
+  background-color: #3b82f6; }
+  .button.is-primary, .button.is-primary:focus {
+    color: #fff; }
+  .button.is-primary:hover, .button.is-primary:active {
+    color: #fff; }
+  .button.is-primary:hover {
+    background-color: #4a8bf7; }
+  .button.is-primary.is-loading::after {
+    border-color: rgba(255, 255, 255, 0.25);
+    border-top-color: #fff; }
+  .button.is-primary:focus {
+    box-shadow: 0 0 0 0.2em rgba(59, 130, 246, 0.5); }
+
+.button.is-gray-outline {
+  border: 1px solid #6b7280;
+  background-color: transparent; }
+  .button.is-gray-outline, .button.is-gray-outline:focus {
+    color: #6b7280; }
+  .button.is-gray-outline:active {
+    color: #6b7280; }
+  .button.is-gray-outline:hover {
+    color: #fff;
+    background-color: #6b7280; }
+  .button.is-gray-outline.is-loading::after {
+    border-color: rgba(107, 114, 128, 0.25);
+    border-top-color: #6b7280; }
+  .button.is-gray-outline:focus {
+    box-shadow: 0 0 0 0.2em rgba(107, 114, 128, 0.5); }
+
+.button.is-secondary-outline {
+  border: 1px solid #8b5cf6;
+  background-color: transparent; }
+  .button.is-secondary-outline, .button.is-secondary-outline:focus {
+    color: #8b5cf6; }
+  .button.is-secondary-outline:active {
+    color: #8b5cf6; }
+  .button.is-secondary-outline:hover {
+    color: #fff;
+    background-color: #8b5cf6; }
+  .button.is-secondary-outline.is-loading::after {
+    border-color: rgba(139, 92, 246, 0.25);
+    border-top-color: #8b5cf6; }
+  .button.is-secondary-outline:focus {
+    box-shadow: 0 0 0 0.2em rgba(139, 92, 246, 0.5); }
+
+.button.is-primary-outline {
+  border: 1px solid #3b82f6;
+  background-color: transparent; }
+  .button.is-primary-outline, .button.is-primary-outline:focus {
+    color: #3b82f6; }
+  .button.is-primary-outline:active {
+    color: #3b82f6; }
+  .button.is-primary-outline:hover {
+    color: #fff;
+    background-color: #3b82f6; }
+  .button.is-primary-outline.is-loading::after {
+    border-color: rgba(59, 130, 246, 0.25);
+    border-top-color: #3b82f6; }
+  .button.is-primary-outline:focus {
+    box-shadow: 0 0 0 0.2em rgba(59, 130, 246, 0.5); }
 
 ::selection {
   background-color: #dbeafe;

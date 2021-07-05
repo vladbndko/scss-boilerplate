@@ -1,0 +1,132 @@
+@import '../share/index';
+
+@keyframes loading-rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.button {
+  display: inline-block;
+  position: relative;
+  border: none;
+  padding: map-get($buttons-paddings, normal);
+  font-size: map-get($buttons-font-sizes, normal);
+  border-radius: $button-border-radius;
+  text-align: center;
+  cursor: pointer;
+  word-break: break-word;
+  font-weight: $button-font-weight;
+  white-space: nowrap;
+  text-transform: $buttons-text-transform;
+  @include has-transition();
+  &:hover,
+  &:active,
+  &:focus {
+    outline: none;
+    text-decoration: none;
+  }
+  &[disabled] {
+    opacity: 0.75;
+    pointer-events: none;
+    user-select: none !important;
+  }
+  // Sizes
+  @each $type in $buttons-sizes {
+    &.is-#{$type} {
+      padding: map-get($buttons-paddings, #{$type});
+      font-size: map-get($buttons-font-sizes, #{$type});
+    }
+  }
+  &.is-loading {
+    color: transparent !important;
+    pointer-events: none !important;
+    user-select: none !important;
+    &::after {
+      content: '';
+      width: 1.5em;
+      height: 1.5em;
+      position: absolute;
+      border-width: 2px;
+      border-style: solid;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      animation: loading-rotate 0.35s linear infinite;
+    }
+  }
+}
+@each $type, $buttons in $buttons-styles {
+  @each $class, $styles in $buttons {
+    .button {
+      $type-class: '';
+      @if ($button-default-type != $type) {
+        $type-class: '-#{$type}';
+      }
+      &.is-#{$class}#{$type-class} {
+        &,
+        &:focus {
+          color: map-get($styles, text-color);
+        }
+        @if ($type == solid) {
+          // Solid
+          background-color: map-get($styles, button-color);
+          &:hover,
+          &:active {
+            color: map-get($styles, text-color);
+          }
+          &:hover {
+            background-color: lighten(map-get($styles, button-color), 3%);
+          }
+          &.is-loading {
+            &::after {
+              border-color: rgba(color(base, light), 0.25);
+              border-top-color: color(base, light);
+            }
+          }
+        } @else if ($type == soft) {
+          // Soft
+          background-color: map-get($styles, button-color);
+          &:hover,
+          &:active {
+            color: map-get($styles, text-color);
+          }
+          &:hover {
+            background-color: darken(map-get($styles, button-color), 3%);
+          }
+          &.is-loading {
+            &::after {
+              border-color: rgba(map-get($styles, text-color), 0.25);
+              border-top-color: map-get($styles, text-color);
+            }
+          }
+        } @else if ($type == outline) {
+          // Outline
+          border: $button-outline-border-width solid map-get($styles, button-color);
+          background-color: transparent;
+          &:active {
+            color: map-get($styles, text-color);
+          }
+          &:hover {
+            color: color(base, light);
+            background-color: map-get($styles, button-color);
+          }
+          &.is-loading {
+            &::after {
+              border-color: rgba(map-get($styles, button-color), 0.25);
+              border-top-color: map-get($styles, button-color);
+            }
+          }
+        }
+        &:focus {
+          box-shadow: 0 0 0 0.2em rgba(map-get($styles, button-color), 0.5);
+        }
+      }
+    }
+  }
+}

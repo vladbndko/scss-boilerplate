@@ -1,6 +1,9 @@
 @import 'colors';
 @import 'helpers';
 
+// Base
+$base-transition: all 0.15s easy-in-out;
+
 // Fonts
 $font-primary: 'Nunito', sans-serif !default;
 $font-secondary: 'Nunito', sans-serif !default;
@@ -14,7 +17,7 @@ $font-sizes: (
   7: 14px,
   8: 12px,
 ) !default;
-$font-weights: 400, 500, 700 !default;
+$font-weights: 400, 600, 700 !default;
 
 // Main
 $body-background: color(base, light) !default;
@@ -34,3 +37,66 @@ $scrollbar-background: color(primary, 500) !default;
 // Hamburger
 $hamburger-color: color(primary, 500) !default;
 $hamburger-height: 3px !default;
+
+// Buttons
+$buttons-sizes: small, large;
+$buttons-text-transform: uppercase;
+$button-border-radius: 10em !default;
+$button-font-weight: 600 !default;
+$buttons-font-sizes: (
+  small: map-get($font-sizes, 8),
+  normal: map-get($font-sizes, 7),
+  large: map-get($font-sizes, 6),
+) !default;
+$buttons-paddings: (
+  small: 8px 16px,
+  normal: 14px 28px,
+  large: 20px 40px,
+) !default;
+$button-shadow: ('') !default;
+$button-default-type: solid !default;
+$button-outline-border-width: 1px !default;
+$buttons-styles: (
+  soft: (
+    gray: (
+      text-color: color(gray, 500),
+      button-color: color(gray, 50),
+    ),
+    primary: (
+      text-color: color(primary, 500),
+      button-color: color(primary, 50),
+    ),
+    secondary: (
+      text-color: color(secondary, 500),
+      button-color: color(secondary, 50),
+    ),
+  ),
+  solid: (
+    gray: (
+      text-color: color(base, light),
+      button-color: color(gray, 500),
+    ),
+    secondary: (
+      text-color: color(base, light),
+      button-color: color(secondary, 500),
+    ),
+    primary: (
+      text-color: color(base, light),
+      button-color: color(primary, 500),
+    ),
+  ),
+  outline: (
+    gray: (
+      text-color: color(gray, 500),
+      button-color: color(gray, 500),
+    ),
+    secondary: (
+      text-color: color(secondary, 500),
+      button-color: color(secondary, 500),
+    ),
+    primary: (
+      text-color: color(primary, 500),
+      button-color: color(primary, 500),
+    ),
+  ),
+) !default;

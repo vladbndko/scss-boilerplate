@@ -39,3 +39,7 @@
     }
   }
 }
+
+@mixin has-transition($properties: all, $duration: 0.15s, $easing: ease-in-out) {
+  transition: $properties $duration $easing;
+}
