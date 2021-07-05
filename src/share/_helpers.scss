@@ -19,11 +19,3 @@
   }
   @return $map;
 }
-
-@function weight($keys...) {
-  $map: $weights;
-  @each $key in $keys {
-    $map: map-get($map, $key);
-  }
-  @return $map;
-}

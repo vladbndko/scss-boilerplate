@@ -20,21 +20,13 @@
 
 html {
   scroll-behavior: smooth;
-  @each $breakpoint, $size in $root-font-size {
-    @if ($breakpoint == xs) {
-      font-size: $size;
-    } @else {
-      @include media($breakpoint) {
-        font-size: $size;
-      }
-    }
-  }
+  font-size: $root-font-size;
 }
 
 body {
   font-family: $font-primary;
   color: color(primary, 500);
-  line-height: 1.6;
+  line-height: $body-line-height;
   font-size: 1rem;
   overflow-x: hidden;
   position: relative;

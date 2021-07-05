@@ -1,0 +1,24 @@
+@import '../share/index';
+
+// Backgrounds
+@each $name, $map in $colors {
+  @each $saturation, $color in $map {
+    .bg-#{$name}-#{$saturation} {
+      background-color: $color !important;
+    }
+  }
+}
+
+// Responsive
+@each $breakpoint, $width in $breakpoints {
+  @include media($breakpoint) {
+    // Backgrounds
+    @each $name, $map in $colors {
+      @each $saturation, $color in $map {
+        .bg-#{$breakpoint}-#{$name}-#{$saturation} {
+          background-color: $color !important;
+        }
+      }
+    }
+  }
+}

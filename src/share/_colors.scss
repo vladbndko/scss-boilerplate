@@ -1,6 +1,6 @@
 $colors: (
   base: (
-    white: #fff,
+    light: #fff,
     dark: #222,
   ),
   gray: (
@@ -39,4 +39,4 @@ $colors: (
     500: #fc9403,
     900: #853c00,
   ),
-);
+) !default;
