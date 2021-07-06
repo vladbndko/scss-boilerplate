@@ -10,36 +10,113 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap-grid.min.css">
     <title>Document</title>
     <style>
-        div {
-            border: 1px solid red;
-        }
+
     </style>
 </head>
 <body>
-<h1>Title h1</h1>
-<h2>Title h2</h2>
-<h3>Title h3</h3>
-<h4>Title h4</h4>
-<h5>Title h5</h5>
-<h6>Title h6</h6>
-<button class="button is-gray-soft">Hello</button>
-<button class="button is-gray-soft is-icon"><i class="fas fa-adjust"></i></button>
-<button class="button is-gray-outline is-small is-loading">Hello</button>
-<button class="button is-gray is-large is-loading">Hello</button>
-<button class="button is-gray is-large is-loading">Hello</button>
-<hr>
-<button class="button is-primary-soft">Hello</button>
-<button class="button is-primary-soft is-icon"><i class="fas fa-adjust"></i></button>
-<button class="button is-primary-outline is-small is-loading">Hello</button>
-<button class="button is-primary is-large is-loading">Hello</button>
-<button class="button is-primary">Hello</button>
-<hr>
-<button class="button is-secondary-soft">Hello</button>
-<button class="button is-secondary-soft is-icon"><i class="fas fa-adjust"></i></button>
-<button class="button is-secondary-outline is-small is-loading">Hello</button>
-<button class="button is-secondary is-large" disabled>Hello</button>
-<button class="button is-secondary"><i class="fas fa-adjust"></i> Hello</button>
+<div class="container">
+    <div class="row">
+        <div class="col-12 py-10">
+            <h1>Title h1</h1>
+            <h2>Title h2</h2>
+            <h3>Title h3</h3>
+            <h4>Title h4</h4>
+            <h5>Title h5</h5>
+            <h6>Title h6</h6>
+            <hr>
+            <input class="form-control" placeholder="Type" />
+            <input class="form-control is-small" placeholder="Type" />
+            <div class="row py-6">
+                <div class="col-6">
+                    <input class="form-control is-small" placeholder="Type" />
+                </div>
+                <div class="col-6">
+                    <button class="button is-primary is-small">Hello</button>
+                </div>
+            </div>
+            <div class="row py-6">
+                <div class="col-6">
+                    <input class="form-control" placeholder="Type" />
+                </div>
+                <div class="col-6">
+                    <button class="button is-primary">Hello</button>
+                </div>
+            </div>
+            <div class="row py-6">
+                <div class="col-6">
+                    <input class="form-control is-large" placeholder="Type" />
+                </div>
+                <div class="col-6">
+                    <button class="button is-primary is-large">Hello</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="input1">Label text</label>
+                <input id="input1" class="form-control" placeholder="Type" disabled />
+                <label for="input1" class="validation-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto debitis obcaecati odit reiciendis. At aut consectetur dolor est eveniet excepturi, fuga illum in ipsa nemo non, perspiciatis quos rerum sed.</label>
+            </div>
+            <hr>
+                <div class="form-group">
+                    <label class="form-label" for="select1"></label>
+                    <select class="form-select" id="select1" disabled>
+                        <option disabled hidden selected>Choose</option>
+                        <option>Options 1</option>
+                        <option>Options 2</option>
+                        <option>Options 3</option>
+                        <option>Options 4</option>
+                    </select>
+                    <label for="select1" class="validation-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto debitis obcaecati odit reiciendis. At aut consectetur dolor est eveniet excepturi, fuga illum in ipsa nemo non, perspiciatis quos rerum sed.</label>
+                    <div class="help-text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequatur consequuntur cum deserunt, dicta dolore, excepturi facilis illum ipsam iste iure, iusto laudantium nihil quos temporibus unde voluptate! Dolore, quos.
+                    </div>
+                </div>
+            <hr>
+            <div class="form-group mb-0">
+                <input type="radio" id="radio" class="form-check">
+                <label for="radio" class="form-label">Lorem ipsum dolor sit amet</label>
+                <label for="radio" class="validation-text">Ad aperiam, assumenda atque ea ipsa magnam, numquam odit optio pariatur quae similique soluta?</label>
+                <div class="help-text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequatur illum molestias porro qui quia tempore.
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" id="checkbox" class="form-check valid">
+                <label for="checkbox" class="form-label">Lorem ipsum dolor sit amet</label>
+                <label for="radio" class="validation-text">Ad aperiam, assumenda atque ea ipsa magnam, numquam odit optio pariatur quae similique soluta?</label>
+            </div>
+            <div class="form-group">
+                <input type="checkbox" id="checkbox2" class="form-check" disabled checked>
+                <label for="checkbox2" class="form-label">Lorem ipsum dolor sit amet</label>
+            </div>
+            <div class="form-group mb-0">
+                <input type="radio" id="radio2" class="form-check" disabled checked>
+                <label for="radio2" class="form-label">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi architecto dolore, dolorem dolores esse excepturi expedita impedit molestiae omnis quam quod rerum, similique. Consequatur et nam nemo nulla rerum voluptatem!</label>
+            </div>
+            <hr>
+            <button class="button is-gray-soft">Hello</button>
+            <button class="button is-gray-soft is-icon"><i class="fas fa-adjust"></i></button>
+            <button class="button is-gray-outline is-small is-loading">Hello</button>
+            <button class="button is-gray is-large is-loading">Hello</button>
+            <button class="button is-gray is-large is-loading">Hello</button>
+            <hr>
+            <button class="button is-primary-soft">Hello</button>
+            <button class="button is-primary-soft is-icon"><i class="fas fa-adjust"></i></button>
+            <button class="button is-primary-outline is-small is-loading">Hello</button>
+            <button class="button is-primary is-large is-loading">Hello</button>
+            <button class="button is-primary">Hello</button>
+            <a href="#" class="button is-primary">Hello</a>
+            <hr>
+            <button class="button is-secondary-soft">Hello</button>
+            <button class="button is-secondary-soft is-icon"><i class="fas fa-ad"></i></button>
+            <button class="button is-secondary-outline is-small is-loading">Hello</button>
+            <button class="button is-secondary is-large" disabled>Hello</button>
+            <button class="button is-secondary ml-4"><i class="fas fa-adjust"></i> Hello</button>
+        </div>
+    </div>
+</div>
 </body>
 </html>

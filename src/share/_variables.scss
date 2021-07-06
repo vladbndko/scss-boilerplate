@@ -2,7 +2,7 @@
 @import 'helpers';
 
 // Base
-$base-transition: all 0.15s easy-in-out;
+$base-transition: all 0.05s easy-in-out;
 
 // Fonts
 $font-primary: 'Nunito', sans-serif !default;
@@ -45,8 +45,8 @@ $hamburger-height: 3px !default;
 // Buttons
 $buttons-sizes: small, large;
 $buttons-text-transform: uppercase;
-$button-border-radius: 10em !default;
-$button-font-weight: 600 !default;
+$buttons-border-radius: 10em !default;
+$buttons-font-weight: 600 !default;
 $buttons-font-sizes: (
   small: map-get($font-sizes, 8),
   normal: map-get($font-sizes, 7),
@@ -76,7 +76,7 @@ hover: (
   opacity: 0.1,
 ),
 */
-$button-shadow: (
+$buttons-shadow: (
   normal: (
     shadow: none,
     opacity: 0.35,
@@ -86,8 +86,8 @@ $button-shadow: (
     opacity: 0.1,
   ),
 ) !default;
-$button-default-type: solid !default;
-$button-outline-border-width: 1px !default;
+$buttons-default-type: solid !default;
+$buttons-outline-border-width: 1px !default;
 $buttons-styles: (
   soft: (
     gray: (
@@ -130,5 +130,40 @@ $buttons-styles: (
       text-color: color(primary, 500),
       button-color: color(primary, 500),
     ),
+  ),
+) !default;
+
+// Forms
+$input-accent-color: color(primary, 500);
+$inputs-border-radius: 0.4em;
+$inputs-font-weight: 400 !default;
+$inputs-sizes: small, large;
+$inputs-text-transform: none !default;
+$inputs-background: color(base, light) !default;
+$inputs-border-color: color(gray, 300) !default;
+$inputs-focus-color: rgba($input-accent-color, 0.7) !default;
+$inputs-focus-shadow: 0 0 0 0.3rem !default;
+$inputs-focus-opacity: 0.3 !default;
+$inputs-placeholder-color: color(gray, 500) !default;
+$inputs-help-color: color(gray, 500) !default;
+$check-size: 20px;
+
+$inputs-font-sizes: (
+  small: map-get($font-sizes, 8),
+  normal: map-get($font-sizes, 7),
+  large: map-get($font-sizes, 6),
+) !default;
+$inputs-paddings: (
+  small: (
+    x: 6px,
+    y: 7.5px,
+  ),
+  normal: (
+    x: 12px,
+    y: 15px,
+  ),
+  large: (
+    x: 18px,
+    y: 22.5px,
   ),
 ) !default;

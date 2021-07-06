@@ -16,13 +16,15 @@
   border: none;
   padding: map($buttons-paddings, normal, x) map($buttons-paddings, normal, y);
   font-size: map-get($buttons-font-sizes, normal);
-  border-radius: $button-border-radius;
+  border-radius: $buttons-border-radius;
   text-align: center;
   cursor: pointer;
   word-break: break-word;
-  font-weight: $button-font-weight;
+  font-weight: $buttons-font-weight;
   white-space: nowrap;
   text-transform: $buttons-text-transform;
+  text-decoration: none;
+  line-height: 1;
   @include has-transition();
   &:hover,
   &:active,
@@ -31,7 +33,7 @@
     text-decoration: none;
   }
   &.is-icon {
-    padding: map($buttons-paddings, normal, x) calc(#{map($buttons-paddings, normal, x)} + 1px);
+    padding: map($buttons-paddings, normal, x);
   }
   &[disabled] {
     opacity: 0.75;
@@ -39,13 +41,12 @@
     user-select: none !important;
   }
   // Sizes
-  @each $type in $buttons-sizes {
-    &.is-#{$type} {
-      padding: map($buttons-paddings, #{$type}, x) map($buttons-paddings, #{$type}, y);
-      font-size: map-get($buttons-font-sizes, #{$type});
+  @each $size in $buttons-sizes {
+    &.is-#{$size} {
+      padding: map($buttons-paddings, #{$size}, x) map($buttons-paddings, #{$size}, y);
+      font-size: map-get($buttons-font-sizes, #{$size});
       &.is-icon {
-        padding: map($buttons-paddings, #{$type}, x)
-          calc(#{map($buttons-paddings, #{$type}, x)} + 1px);
+        padding: map($buttons-paddings, #{$size}, x);
       }
     }
   }
@@ -72,7 +73,7 @@
   @each $class, $styles in $buttons {
     .button {
       $type-class: '';
-      @if ($button-default-type != $type) {
+      @if ($buttons-default-type != $type) {
         $type-class: '-#{$type}';
       }
       &.is-#{$class}#{$type-class} {
@@ -83,9 +84,9 @@
         @if ($type == solid) {
           // Solid
           background-color: map-get($styles, button-color);
-          @if (map($button-shadow, normal, shadow) != none) {
-            box-shadow: map($button-shadow, normal, shadow)
-              rgba(map-get($styles, button-color), map($button-shadow, normal, opacity));
+          @if (map($buttons-shadow, normal, shadow) != none) {
+            box-shadow: map($buttons-shadow, normal, shadow)
+              rgba(map-get($styles, button-color), map($buttons-shadow, normal, opacity));
           }
           &:hover,
           &:active {
@@ -93,9 +94,9 @@
           }
           &:hover {
             background-color: lighten(map-get($styles, button-color), 3%);
-            @if (map($button-shadow, hover, shadow) != none) {
-              box-shadow: map($button-shadow, hover, shadow)
-                rgba(map-get($styles, button-color), map($button-shadow, hover, opacity));
+            @if (map($buttons-shadow, hover, shadow) != none) {
+              box-shadow: map($buttons-shadow, hover, shadow)
+                rgba(map-get($styles, button-color), map($buttons-shadow, hover, opacity));
             }
           }
           &.is-loading {
@@ -122,7 +123,7 @@
           }
         } @else if ($type == outline) {
           // Outline
-          border: $button-outline-border-width solid map-get($styles, button-color);
+          border: $buttons-outline-border-width solid map-get($styles, button-color);
           background-color: transparent;
           &:active {
             color: map-get($styles, text-color);
