@@ -29,6 +29,9 @@
       background-color: darken($inputs-background, 5%);
       pointer-events: none;
     }
+    &[readonly] {
+      pointer-events: none;
+    }
     &:not([disabled]):hover {
       border-color: darken($inputs-border-color, 10%);
     }
@@ -107,14 +110,16 @@
       }
     }
 
-    &[disabled] {
-      ~ .form-label {
-        pointer-events: none;
-        &::before,
-        &::after {
-          opacity: 0.5 !important;
-        }
+    &[disabled] ~ .form-label {
+      pointer-events: none;
+      &::before,
+      &::after {
+        opacity: 0.5 !important;
       }
+    }
+
+    &[readonly] ~ .form-label {
+      pointer-events: none;
     }
 
     &:checked {

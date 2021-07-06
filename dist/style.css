@@ -3829,6 +3829,8 @@ hover: (
   .form-select[disabled], .form-control[disabled] {
     background-color: #f2f2f2;
     pointer-events: none; }
+  .form-select[readonly], .form-control[readonly] {
+    pointer-events: none; }
   .form-select:not([disabled]):hover, .form-control:not([disabled]):hover {
     border-color: #b4bbc5; }
   .form-select:focus, .form-control:focus {
@@ -3893,6 +3895,8 @@ hover: (
     pointer-events: none; }
     .form-check[disabled] ~ .form-label::before, .form-check[disabled] ~ .form-label::after {
       opacity: 0.5 !important; }
+  .form-check[readonly] ~ .form-label {
+    pointer-events: none; }
   .form-check:checked ~ .form-label::after {
     opacity: 1; }
   .form-check[type='radio'] ~ [class*='label']::before, .form-check[type='radio'] ~ [class*='label']::after {
