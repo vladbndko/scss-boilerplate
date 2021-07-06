@@ -14,7 +14,7 @@
   display: inline-block;
   position: relative;
   border: none;
-  padding: map-get($buttons-paddings, normal);
+  padding: map($buttons-paddings, normal, x) map($buttons-paddings, normal, y);
   font-size: map-get($buttons-font-sizes, normal);
   border-radius: $button-border-radius;
   text-align: center;
@@ -30,6 +30,9 @@
     outline: none;
     text-decoration: none;
   }
+  &.is-icon {
+    padding: map($buttons-paddings, normal, x) calc(#{map($buttons-paddings, normal, x)} + 1px);
+  }
   &[disabled] {
     opacity: 0.75;
     pointer-events: none;
@@ -38,8 +41,12 @@
   // Sizes
   @each $type in $buttons-sizes {
     &.is-#{$type} {
-      padding: map-get($buttons-paddings, #{$type});
+      padding: map($buttons-paddings, #{$type}, x) map($buttons-paddings, #{$type}, y);
       font-size: map-get($buttons-font-sizes, #{$type});
+      &.is-icon {
+        padding: map($buttons-paddings, #{$type}, x)
+          calc(#{map($buttons-paddings, #{$type}, x)} + 1px);
+      }
     }
   }
   &.is-loading {
@@ -76,12 +83,20 @@
         @if ($type == solid) {
           // Solid
           background-color: map-get($styles, button-color);
+          @if (map($button-shadow, normal, shadow) != none) {
+            box-shadow: map($button-shadow, normal, shadow)
+              rgba(map-get($styles, button-color), map($button-shadow, normal, opacity));
+          }
           &:hover,
           &:active {
             color: map-get($styles, text-color);
           }
           &:hover {
             background-color: lighten(map-get($styles, button-color), 3%);
+            @if (map($button-shadow, hover, shadow) != none) {
+              box-shadow: map($button-shadow, hover, shadow)
+                rgba(map-get($styles, button-color), map($button-shadow, hover, opacity));
+            }
           }
           &.is-loading {
             &::after {

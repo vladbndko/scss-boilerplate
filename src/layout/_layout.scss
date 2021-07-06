@@ -25,7 +25,7 @@ html {
 
 body {
   font-family: $font-primary;
-  color: color(primary, 500);
+  color: $body-font-color;
   line-height: $body-line-height;
   font-size: 1rem;
   overflow-x: hidden;

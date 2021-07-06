@@ -83,3 +83,31 @@ $text-transforms: lowercase, uppercase, capitalize;
 .text-nowrap {
   white-space: nowrap !important;
 }
+
+.font-primary {
+  font-family: $font-primary;
+}
+
+.font-secondary {
+  font-family: $font-secondary;
+}
+
+// Heading H1-H6
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-secondary;
+  font-weight: $headline-weight;
+  line-height: $headline-line-height;
+}
+
+@each $title, $size in $font-sizes {
+  @if ($title != 1 and $title != 2) {
+    h#{$title - 2} {
+      font-size: $size;
+    }
+  }
+}

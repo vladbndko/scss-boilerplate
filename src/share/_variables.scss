@@ -19,8 +19,12 @@ $font-sizes: (
 ) !default;
 $font-weights: 400, 600, 700 !default;
 
+$headline-weight: 600 !default;
+$headline-line-height: 1.2 !default;
+
 // Main
 $body-background: color(base, light) !default;
+$body-font-color: color(base, dark) !default;
 $body-font-weight: 400 !default;
 $body-line-height: 1.6 !default;
 $root-font-size: map-get($font-sizes, 7) !default;
@@ -49,11 +53,39 @@ $buttons-font-sizes: (
   large: map-get($font-sizes, 6),
 ) !default;
 $buttons-paddings: (
-  small: 8px 16px,
-  normal: 14px 28px,
-  large: 20px 40px,
+  small: (
+    x: 8px,
+    y: 16px,
+  ),
+  normal: (
+    x: 14px,
+    y: 28px,
+  ),
+  large: (
+    x: 20px,
+    y: 40px,
+  ),
 ) !default;
-$button-shadow: ('') !default;
+/*
+normal: (
+  shadow: 0px 2px 4px 2px,
+  opacity: 0.35,
+),
+hover: (
+  shadow: 0px 2px 2px 1px,
+  opacity: 0.1,
+),
+*/
+$button-shadow: (
+  normal: (
+    shadow: none,
+    opacity: 0.35,
+  ),
+  hover: (
+    shadow: none,
+    opacity: 0.1,
+  ),
+) !default;
 $button-default-type: solid !default;
 $button-outline-border-width: 1px !default;
 $buttons-styles: (

@@ -1,4 +1,24 @@
 /*
+normal: (
+  shadow: 0px 2px 4px 2px,
+  opacity: 0.35,
+),
+hover: (
+  shadow: 0px 2px 2px 1px,
+  opacity: 0.1,
+),
+*/
+/*
+normal: (
+  shadow: 0px 2px 4px 2px,
+  opacity: 0.35,
+),
+hover: (
+  shadow: 0px 2px 2px 1px,
+  opacity: 0.1,
+),
+*/
+/*
 @import '../../node_modules/bootstrap/scss/bootstrap-reboot';
 @import '../../node_modules/bootstrap/scss/bootstrap-grid';
 
@@ -714,6 +734,16 @@ $fa-font-path: 'webfonts/fontawesome';
     bottom: 0;
     transform: rotate(-90deg); }
 
+/*
+normal: (
+  shadow: 0px 2px 4px 2px,
+  opacity: 0.35,
+),
+hover: (
+  shadow: 0px 2px 2px 1px,
+  opacity: 0.1,
+),
+*/
 .bg-base-light {
   background-color: #fff !important; }
 
@@ -1008,6 +1038,16 @@ $fa-font-path: 'webfonts/fontawesome';
   .bg-xl-warning-900 {
     background-color: #853c00 !important; } }
 
+/*
+normal: (
+  shadow: 0px 2px 4px 2px,
+  opacity: 0.35,
+),
+hover: (
+  shadow: 0px 2px 2px 1px,
+  opacity: 0.1,
+),
+*/
 .m-0 {
   margin: 0 !important; }
 
@@ -3006,6 +3046,16 @@ $fa-font-path: 'webfonts/fontawesome';
     margin-left: auto !important;
     margin-right: auto !important; } }
 
+/*
+normal: (
+  shadow: 0px 2px 4px 2px,
+  opacity: 0.35,
+),
+hover: (
+  shadow: 0px 2px 2px 1px,
+  opacity: 0.1,
+),
+*/
 .text-color-base-light {
   color: #fff !important; }
 
@@ -3482,6 +3532,50 @@ $fa-font-path: 'webfonts/fontawesome';
 .text-nowrap {
   white-space: nowrap !important; }
 
+.font-primary {
+  font-family: "Nunito", sans-serif; }
+
+.font-secondary {
+  font-family: "Nunito", sans-serif; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  line-height: 1.2; }
+
+h1 {
+  font-size: 36px; }
+
+h2 {
+  font-size: 30px; }
+
+h3 {
+  font-size: 24px; }
+
+h4 {
+  font-size: 18px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  font-size: 12px; }
+
+/*
+normal: (
+  shadow: 0px 2px 4px 2px,
+  opacity: 0.35,
+),
+hover: (
+  shadow: 0px 2px 2px 1px,
+  opacity: 0.1,
+),
+*/
 @keyframes loading-rotate {
   0% {
     transform: translate(-50%, -50%) rotate(0deg); }
@@ -3505,6 +3599,8 @@ $fa-font-path: 'webfonts/fontawesome';
   .button:hover, .button:active, .button:focus {
     outline: none;
     text-decoration: none; }
+  .button.is-icon {
+    padding: 14px calc(14px + 1px); }
   .button[disabled] {
     opacity: 0.75;
     pointer-events: none;
@@ -3512,9 +3608,13 @@ $fa-font-path: 'webfonts/fontawesome';
   .button.is-small {
     padding: 8px 16px;
     font-size: 12px; }
+    .button.is-small.is-icon {
+      padding: 8px calc(8px + 1px); }
   .button.is-large {
     padding: 20px 40px;
     font-size: 18px; }
+    .button.is-large.is-icon {
+      padding: 20px calc(20px + 1px); }
   .button.is-loading {
     color: transparent !important;
     pointer-events: none !important;
@@ -3664,6 +3764,16 @@ $fa-font-path: 'webfonts/fontawesome';
   .button.is-primary-outline:focus {
     box-shadow: 0 0 0 0.2em rgba(59, 130, 246, 0.5); }
 
+/*
+normal: (
+  shadow: 0px 2px 4px 2px,
+  opacity: 0.35,
+),
+hover: (
+  shadow: 0px 2px 2px 1px,
+  opacity: 0.1,
+),
+*/
 ::selection {
   background-color: #dbeafe;
   color: #3b82f6; }
@@ -3684,7 +3794,7 @@ html {
 
 body {
   font-family: "Nunito", sans-serif;
-  color: #3b82f6;
+  color: #222;
   line-height: 1.6;
   font-size: 1rem;
   overflow-x: hidden;
