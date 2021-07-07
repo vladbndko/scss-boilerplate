@@ -1,0 +1,10 @@
+@import '../share/index';
+
+.box {
+  background-color: $box-default-background-color;
+  box-shadow: $box-shadow;
+  border-radius: $box-border-radius;
+  &-body {
+    padding: map($box-body-padding, y) map($box-body-padding, x);
+  }
+}

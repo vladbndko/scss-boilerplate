@@ -1,97 +1,220 @@
 @import '../share/index';
 
+// Validation
+$valid-color: color(success, 500);
+$invalid-color: color(danger, 500);
+$validations-types: (
+  valid: color(success, 500),
+  invalid: color(danger, 500),
+);
+
 .form {
   &-group {
     margin-bottom: 1rem;
+    position: relative;
   }
+
   &-label,
   &-control,
   &-select {
     display: inline-block;
     width: 100%;
   }
+
   &-label {
     font-size: map-get($font-sizes, 7);
     margin-bottom: 0;
   }
+
   &-select,
   &-control {
     background-color: $inputs-background;
     border: 1px solid $inputs-border-color;
-    color: inherit;
-    padding: map($inputs-paddings, normal, x) map($inputs-paddings, normal, y);
+    color: $inputs-text-color;
+    padding: map($inputs-paddings, normal, y) map($inputs-paddings, normal, x);
     border-radius: $inputs-border-radius;
     font-size: map-get($inputs-font-sizes, normal);
     line-height: 1;
     @include has-transition();
     @include placeholder-color($inputs-placeholder-color);
+
     &[disabled] {
       background-color: darken($inputs-background, 5%);
       pointer-events: none;
     }
+
     &[readonly] {
       pointer-events: none;
     }
+
     &:not([disabled]):hover {
       border-color: darken($inputs-border-color, 10%);
     }
+
     &:focus {
       outline: none;
       box-shadow: $inputs-focus-shadow rgba($inputs-focus-color, $inputs-focus-opacity);
       border-color: mix(color(primary, 500), white, 60);
     }
+
     // Sizes
     @each $size in $inputs-sizes {
       &.is-#{$size} {
-        padding: map($inputs-paddings, #{$size}, x) map($inputs-paddings, #{$size}, y);
-        font-size: map-get($buttons-font-sizes, #{$size});
-        &.is-icon {
-          padding: map($buttons-paddings, #{$size}, x);
-        }
+        padding: map($inputs-paddings, #{$size}, y) map($inputs-paddings, #{$size}, x);
+        font-size: map-get($inputs-font-sizes, #{$size});
       }
     }
   }
+
   &-select {
     appearance: none;
     cursor: pointer;
     @include arrow-dropdown();
   }
-  &-control,
-  &-select,
-  &-check {
-    ~ .help-text {
-      color: $inputs-help-color;
-    }
-  }
 
+  // Switch
   // Check
+  &-switch,
   &-check {
     position: absolute;
     z-index: -1;
     opacity: 0;
 
-    &:focus ~ .form-label::before {
-      box-shadow: $inputs-focus-shadow rgba($inputs-focus-color, $inputs-focus-opacity);
-    }
-
     ~ .form-label {
       cursor: pointer;
       position: relative;
       width: auto;
-      padding-left: calc(#{$check-size} + (#{$check-size} / 2));
-      &:empty {
-        min-width: $check-size;
-        min-height: $check-size;
-      }
+
       &::before,
       &::after {
         content: '';
         position: absolute;
-        width: $check-size;
-        height: $check-size;
         left: 0;
         top: 0;
         @include has-transition();
+      }
+    }
+
+    &:focus ~ .form-label::before {
+      box-shadow: $inputs-focus-shadow rgba($inputs-focus-color, $inputs-focus-opacity);
+    }
+
+    &[disabled] ~ .form-label {
+      pointer-events: none;
+
+      &::before,
+      &::after {
+        opacity: 0.5 !important;
+      }
+    }
+
+    &[readonly] ~ .form-label {
+      pointer-events: none;
+    }
+  }
+
+  // Switch
+  &-switch {
+    + .form-label {
+      padding-left: calc((#{$check-size} * 2) + (#{$check-size} / 2));
+
+      &:empty {
+        min-width: calc(#{$check-size} * 2);
+        min-height: $check-size;
+      }
+
+      &::before,
+      &::after {
+        border-radius: 10em;
+      }
+
+      &::before {
+        width: calc(#{$check-size} * 2);
+        height: $check-size;
+        background-color: map($switches-styles, normal, disable, background-color);
+        border: 1px solid map($switches-styles, normal, disable, border-color);
+        z-index: 1;
+      }
+
+      &::after {
+        z-index: 2;
+        width: $check-size;
+        height: $check-size;
+        background-color: map($switches-styles, normal, disable, indicator-color);
+        transform: scale(0.7);
+      }
+
+      &:hover::before {
+        border-color: map($switches-styles, normal, disable, indicator-color);
+      }
+    }
+
+    &:checked + .form-label {
+      &::before {
+        background-color: map($switches-styles, normal, active, background-color);
+        border-color: map($switches-styles, normal, active, border-color);
+      }
+
+      &::after {
+        left: $check-size;
+        background-color: map($switches-styles, normal, active, indicator-color);
+      }
+      &:hover::before {
+        border-color: map($switches-styles, normal, active, indicator-color);
+      }
+    }
+
+    @each $type, $styles in $switches-styles {
+      @if ($type != normal) {
+        &.is-#{$type} {
+          + .form-label {
+            &::before {
+              background-color: map($styles, disable, background-color);
+              border-color: map($styles, disable, border-color);
+            }
+
+            &::after {
+              background-color: map($styles, disable, indicator-color);
+            }
+
+            &:hover::before {
+              border-color: map($styles, disable, indicator-color);
+            }
+          }
+
+          &:checked + .form-label {
+            &::before {
+              background-color: map($styles, active, background-color);
+              border-color: map($styles, active, border-color);
+            }
+
+            &::after {
+              background-color: map($styles, active, indicator-color);
+            }
+
+            &:hover::before {
+              border-color: map($styles, active, indicator-color);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Check
+  &-check {
+    ~ .form-label {
+      padding-left: calc(#{$check-size} + (#{$check-size} / 2));
+
+      &:empty {
+        min-width: $check-size;
+        min-height: $check-size;
+      }
+
+      &::before,
+      &::after {
+        width: $check-size;
+        height: $check-size;
       }
 
       &::before {
@@ -105,105 +228,84 @@
         transform: scale(0);
         opacity: 0;
       }
-      &:not([disabled]):hover::before {
+
+      &:hover::before {
         border-color: darken($inputs-border-color, 10%);
       }
     }
 
-    &[disabled] ~ .form-label {
-      pointer-events: none;
-      &::before,
-      &::after {
-        opacity: 0.5 !important;
-      }
-    }
-
-    &[readonly] ~ .form-label {
-      pointer-events: none;
-    }
-
-    &:checked {
-      ~ .form-label {
-        &::after {
-          opacity: 1;
-        }
-      }
+    &:checked ~ .form-label::after {
+      opacity: 1;
     }
 
     // Type radio
     &[type='radio'] {
-      ~ [class*='label'] {
+      ~ .form-label {
         &::before,
         &::after {
-          border-radius: 50%;
+          border-radius: 10em;
         }
+
         &::after {
-          background-color: $input-accent-color;
+          background-color: $inputs-accent-color;
           border: 1px solid transparent;
         }
       }
-      &:checked {
-        ~ [class*='label'] {
-          &::before {
-            border-color: $input-accent-color;
-          }
-          &::after {
-            transform: scale(0.6);
-          }
+
+      &:checked ~ .form-label {
+        &::before {
+          border-color: $inputs-accent-color;
+        }
+
+        &::after {
+          transform: scale(0.6);
         }
       }
     }
 
     // Type checkbox
     &[type='checkbox'] {
-      ~ [class*='label'] {
+      ~ .form-label {
         &::before,
         &::after {
           border-radius: 0.5em;
         }
+
         &::before {
           background-color: transparent;
         }
+
         &::after {
           background: transparent
             url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='white' d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z'%3E%3C/path%3E%3C/svg%3E")
             no-repeat center / 0.7rem;
         }
       }
-      &:checked {
-        ~ [class*='label'] {
-          &::before {
-            background-color: $input-accent-color;
-            border-color: transparent;
-          }
 
-          &::after {
-            transform: scale(1);
-          }
+      &:checked ~ .form-label {
+        &::before {
+          background-color: $inputs-accent-color;
+          border-color: transparent;
+        }
+
+        &::after {
+          transform: scale(1);
         }
       }
     }
   }
 
   // Validation
-  $valid-color: color(success, 500);
-  $invalid-color: color(danger, 500);
-  $validations-types: (
-    valid: color(success, 500),
-    invalid: color(danger, 500),
-  );
   @each $type, $color in $validations-types {
     &-control,
     &-select,
     &-check {
       &.#{$type} {
-        border-color: $color;
+        border-color: $color !important;
+
         &:focus {
           box-shadow: $inputs-focus-shadow rgba($color, $inputs-focus-opacity);
           border-color: mix($color, white, 60);
-        }
-        ~ .validation-text {
-          color: $color;
         }
       }
     }
@@ -213,9 +315,11 @@
         &:focus ~ .form-label::before {
           box-shadow: $inputs-focus-shadow rgba($color, $inputs-focus-opacity);
         }
+
         & ~ .form-label::before {
           border-color: $color !important;
         }
+
         &:checked {
           &[type='radio'] ~ .form-label::after,
           &[type='checkbox'] ~ .form-label::before {
@@ -225,16 +329,92 @@
       }
     }
   }
-  &-control,
-  &-select,
-  &-check {
-    ~ .validation-text {
-      font-size: size(8);
-      display: block;
+}
+
+// Validation
+@each $type, $color in $validations-types {
+  .#{$type}-message {
+    color: $color;
+  }
+}
+
+.valid-message,
+.invalid-message {
+  font-size: size(8);
+  display: block;
+}
+
+.help-text {
+  color: $inputs-help-color;
+}
+
+// Has icon
+.has-icon-left,
+.has-icon-right {
+  position: relative;
+
+  i {
+    position: absolute;
+    font-size: map-get($buttons-font-sizes, normal);
+    color: $inputs-placeholder-color;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .form {
+    &-select,
+    &-control {
+      &:focus {
+        ~ i {
+          color: $inputs-text-color;
+        }
+      }
     }
-    &:not([class*='valid']) {
-      ~ .validation-text {
-        display: none;
+  }
+
+  @each $size in $inputs-sizes {
+    .form {
+      &-select,
+      &-control {
+        &.is-#{$size} {
+          ~ i {
+            font-size: map($inputs-font-sizes, #{$size});
+          }
+        }
+      }
+    }
+  }
+}
+
+@each $side in left, right {
+  .has-icon-#{$side} {
+    .form {
+      &-select,
+      &-control {
+        padding-#{$side}: calc(
+          #{map($inputs-paddings, normal, x)} + (#{map($inputs-font-sizes, normal)} + 0.5em)
+        );
+
+        ~ i {
+          #{$side}: map($inputs-paddings, normal, x);
+        }
+      }
+    }
+
+    @each $size in $inputs-sizes {
+      .form {
+        &-select,
+        &-control {
+          &.is-#{$size} {
+            padding-#{$side}: calc(
+              #{map($inputs-paddings, #{$size}, x)} + (#{map($inputs-font-sizes, #{$size})} + 0.5em)
+            );
+
+            ~ i {
+              #{$side}: map($inputs-paddings, #{$size}, x);
+            }
+          }
+        }
       }
     }
   }

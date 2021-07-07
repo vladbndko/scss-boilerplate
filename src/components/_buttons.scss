@@ -99,6 +99,10 @@
                 rgba(map-get($styles, button-color), map($buttons-shadow, hover, opacity));
             }
           }
+          &:focus {
+            box-shadow: $buttons-focus-shadow
+              rgba(map-get($styles, button-color), $buttons-focus-opacity);
+          }
           &.is-loading {
             &::after {
               border-color: rgba(color(base, light), 0.25);
@@ -114,6 +118,10 @@
           }
           &:hover {
             background-color: darken(map-get($styles, button-color), 3%);
+          }
+          &:focus {
+            box-shadow: $buttons-focus-shadow
+              rgba(map-get($styles, text-color), $buttons-focus-opacity);
           }
           &.is-loading {
             &::after {
@@ -132,15 +140,16 @@
             color: color(base, light);
             background-color: map-get($styles, button-color);
           }
+          &:focus {
+            box-shadow: $buttons-focus-shadow
+              rgba(map-get($styles, button-color), $buttons-focus-opacity);
+          }
           &.is-loading {
             &::after {
               border-color: rgba(map-get($styles, button-color), 0.25);
               border-top-color: map-get($styles, button-color);
             }
           }
-        }
-        &:focus {
-          box-shadow: 0 0 0 0.2em rgba(map-get($styles, button-color), 0.5);
         }
       }
     }

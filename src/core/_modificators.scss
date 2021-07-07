@@ -1,0 +1,30 @@
+@import '../share/index';
+
+.pointer {
+  cursor: pointer;
+}
+
+$borders-sides: left, right, top, bottom;
+$borders-styles: solid, dotted, dashed;
+$borders-sizes: (
+  1: 1px,
+  2: 2px,
+  3: 3px,
+);
+
+@each $style in $borders-styles {
+  .border-#{$style} {
+    border-style: $style;
+  }
+  @each $side in $borders-sides {
+    .border-#{$side}-#{$style} {
+      border-#{$side}-style: $style;
+    }
+  }
+}
+
+@each $key, $size in $borders-sizes {
+  .border-#{$key} {
+    border-width: $size;
+  }
+}

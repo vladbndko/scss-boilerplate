@@ -86,6 +86,8 @@ $buttons-shadow: (
     opacity: 0.1,
   ),
 ) !default;
+$buttons-focus-shadow: 0 0 0 0.3rem !default;
+$buttons-focus-opacity: 0.3 !default;
 $buttons-default-type: solid !default;
 $buttons-outline-border-width: 1px !default;
 $buttons-styles: (
@@ -134,19 +136,20 @@ $buttons-styles: (
 ) !default;
 
 // Forms
-$input-accent-color: color(primary, 500);
-$inputs-border-radius: 0.4em;
+$inputs-accent-color: color(primary, 500) !default;
+$inputs-text-color: color(base, dark) !default;
+$inputs-border-radius: 0.4em !default;
 $inputs-font-weight: 400 !default;
-$inputs-sizes: small, large;
+$inputs-sizes: small, large !default;
 $inputs-text-transform: none !default;
 $inputs-background: color(base, light) !default;
 $inputs-border-color: color(gray, 300) !default;
-$inputs-focus-color: rgba($input-accent-color, 0.7) !default;
+$inputs-focus-color: rgba($inputs-accent-color, 0.7) !default;
 $inputs-focus-shadow: 0 0 0 0.3rem !default;
 $inputs-focus-opacity: 0.3 !default;
-$inputs-placeholder-color: color(gray, 500) !default;
+$inputs-placeholder-color: color(gray, 400) !default;
 $inputs-help-color: color(gray, 500) !default;
-$check-size: 20px;
+$check-size: 20px !default;
 
 $inputs-font-sizes: (
   small: map-get($font-sizes, 8),
@@ -155,15 +158,51 @@ $inputs-font-sizes: (
 ) !default;
 $inputs-paddings: (
   small: (
-    x: 6px,
-    y: 7.5px,
+    x: 7.5px,
+    y: 6px,
   ),
   normal: (
-    x: 12px,
-    y: 15px,
+    x: 15px,
+    y: 12px,
   ),
   large: (
-    x: 18px,
-    y: 22.5px,
+    x: 22.5px,
+    y: 18px,
   ),
 ) !default;
+
+$switches-styles: (
+  normal: (
+    disable: (
+      border-color: color(gray, 400),
+      background-color: transparent,
+      indicator-color: color(gray, 500),
+    ),
+    active: (
+      border-color: color(primary, 100),
+      background-color: color(primary, 100),
+      indicator-color: color(primary, 500),
+    ),
+  ),
+  danger-success: (
+    disable: (
+      border-color: color(danger, 100),
+      background-color: color(danger, 100),
+      indicator-color: color(danger, 500),
+    ),
+    active: (
+      border-color: color(success, 100),
+      background-color: color(success, 100),
+      indicator-color: color(success, 500),
+    ),
+  ),
+);
+
+// Box
+$box-border-radius: 0.5rem;
+$box-default-background-color: color(base, light);
+$box-shadow: 0 1px 3px rgba(color(base, dark), 0.1);
+$box-body-padding: (
+  x: 20px,
+  y: 20px,
+);
